@@ -1,0 +1,21 @@
+<signal-program> --> <program>
+<program> --> PROGRAM <procedure-identifier> ;<block>.
+<block> --> <declarations> BEGIN <statements-list> END
+<statements-list> --> <empty>
+<declarations> --> <variable-declarations>
+<variable-declarations> --> VAR <declarations-list> |<empty>
+<declarations-list> --> <declaration><declarations-list> |<empty>
+<declaration> --><variable-identifier><identifiers-list>:<attribute><attributes-list> ;
+<identifiers-list> --> , <variable-identifier><identifiers-list> |<empty>
+<attributes-list> --> <attribute> <attributes-list> |<empty>
+<attribute> --> SIGNAL |COMPLEX |INTEGER |FLOAT |BLOCKFLOAT |EXT |[<range><ranges-list>]
+<ranges-list> --> ,<range> <ranges-list> |<empty>
+<range> --> <unsigned-integer> .. <unsigned-integer>
+<variable-identifier> --> <identifier>
+<procedure-identifier> --> <identifier>
+<identifier> --> <letter><string>
+<string> --> <letter><string> |<digit><string> |<empty>
+<unsigned-integer> --> <digit><digits-string>
+<digits-string> --> <digit><digits-string> |<empty>
+<digit> --> 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
+<letter> --> A | B | C | D | ... | Z
